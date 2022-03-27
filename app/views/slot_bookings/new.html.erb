@@ -1,0 +1,42 @@
+<section class="d-flex align-items-center justify-content-center">
+
+  <%= form_for @slotbooking, url: {action: "save"}, html: {class: "sp-400w-form"} do |f| %>
+
+    <% if flash[:error] %>
+        <div class="alert alert-danger">
+            <%= flash[:error] %>
+        </div>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <div class="mb-3 mt-3">
+      <label for="entrance_number" class="form-label">Entrance Number</label>
+      <%= f.collection_select :entry_point_id, EntryPoint.all, :id, :name, {:prompt => '--- Select Entry Point ---'}, {:class=>'form-control'} %>
+
+      <% if @slotbooking.errors[:entry_point_id].any? %>
+        <% @slotbooking.errors[:entry_point_id].each do |error| %>
+          <em class="text-danger"><%= error %></em> <br />
+        <% end %>
+      <% end %>
+
+    </div>
+    <div class="mb-3">
+      <label for="vehicle_reg_no" class="form-label">Vehicle Register No.</label>
+      <%= f.text_field :vehicle_reg_no, :class => 'form-control', :placeholder => "V0001" %>
+
+      <% if @slotbooking.errors[:vehicle_reg_no].any? %>
+        <% @slotbooking.errors[:vehicle_reg_no].each do |error| %>
+          <em class="text-danger"><%= error %></em> <br />
+        <% end %>
+      <% end %>
+
+    </div>
+    <%= f.submit "Book Now", :class => 'btn btn-primary' %>
+  <% end %>
+
+</section>

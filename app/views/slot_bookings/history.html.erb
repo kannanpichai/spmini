@@ -1,0 +1,52 @@
+<!-- Filter block start -->
+<section class="filter-block">
+
+  <%= form_tag("/slot_bookings/history", :method => "post", :class => "form-inline", data: { turbo: false }) do %>
+    <div class="row align-items-center">
+      <div class="col-lg-4">
+        <% if flash[:error] %>
+          <em class="text-danger">
+            <%= flash[:error] %>
+          </em>
+        <% end %>
+      </div>
+      <div class="col-lg-2">
+        <%= label_tag(:vehicle_reg_no, "Vehicle Reg No.", :class => "label") %>
+      </div>
+      <div class="col-lg-4">
+        <%= text_field_tag(:vehicle_reg_no,@vehicle_reg_no, {class: "form-control", placeholder: "Please enter vehicle reg no."} ) %>
+      </div>
+      <div class="col-lg-2">
+        <%= submit_tag("Filter", :class => "btn btn-sm btn-primary") %>
+      </div>
+    </div>
+  <% end %>
+
+</section>
+<!-- Filter block end -->
+
+<!-- Data Grid Start -->
+<section>
+
+  <table class="table data-table">
+    <thead>
+    <tr>
+      <th>Slot No.</th>
+      <th>Vehicle Reg No.</th>
+      <th>Parked Duration (Hours)</th>
+      <th>Booked Date & Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @vehicle_booking_history.each do |booking| %>
+      <tr>
+        <td><%= booking.parking_slot.slot_no %></td>
+        <td><%= booking.vehicle_reg_no %></td>
+        <td><%= booking.duration_in_hrs %></td>
+        <td><%= format_dt(booking.booked_at) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</section>
+<!-- Data Grid End -->

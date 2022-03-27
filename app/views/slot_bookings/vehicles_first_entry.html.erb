@@ -1,0 +1,21 @@
+<!-- Data Grid Start -->
+<section>
+
+  <table class="table data-table">
+    <thead>
+    <tr>
+      <th>Vehicle Reg No.</th>
+      <th>First Booking Date & Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @vehicles_first_entry.each do |booking| %>
+      <tr>
+        <td><%= booking.vehicle_reg_no %></td>
+        <td><%= format_dt(booking.booked_at) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</section>
+<!-- Data Grid End -->

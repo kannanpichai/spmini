@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-sm bg-light sticky-top">
+
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            Smart Parking
+        </a>
+        <ul class="navbar-nav">
+
+            <li class="nav-item">
+                <%= link_to "Slots", "/", :class => "nav-link" %>
+            </li>
+
+            <li class="nav-item">
+                <%= link_to "History", "/slot_bookings/history", :class => "nav-link" %>
+            </li>
+
+            <li class="nav-item">
+                <%= link_to "Vehicles", "/slot_bookings/vehicles_first_entry", :class => "nav-link" %>
+            </li>
+
+            <li class="nav-item d-flex align-items-center">
+                <%= link_to "Book Slot", "/slot_bookings/new", :class => "btn btn-primary btn-sm" %>
+            </li>
+        </ul>
+    </div>
+
+</nav>
