@@ -14,7 +14,7 @@ The setup steps expect following tools installed on the system.
 
 1. Clone the project and switch project's root directory
 ```bash
-git clone git@github.com:organization/project-name.git
+git clone https://github.com/kannanpichai/spmini.git
 ```
 
 2. Change the Database configuration according to your setup in app/database.yml 
