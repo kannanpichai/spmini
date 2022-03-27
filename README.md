@@ -1,7 +1,9 @@
 # SmartParking 
 
 The setup steps expect following tools installed on the system.
+
 **Git**
+
 **Ruby 3.1.0**
 
 **Rails 7.0.2.3**
